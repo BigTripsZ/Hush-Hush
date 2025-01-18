@@ -52,10 +52,18 @@ const PaymentForm = ({ onClose, amount, service, onPayment }) => {
   );
 };
 
-const StripeWrapper = ({ children, amount, service, onPayment }) => (
-  <Elements stripe={stripePromise}>
-    {React.cloneElement(children, { amount, service, onPayment })}
-  </Elements>
-);
+const StripeWrapper = ({ children, amount, service, onPayment }) => {
+  // Ensure we're only cloning valid React elements
+  if (React.isValidElement(children)) {
+    return (
+      <Elements stripe={stripePromise}>
+        {React.cloneElement(children, { amount, service, onPayment })}
+      </Elements>
+    );
+  }
+  // If children is not a valid React element, return null or handle it appropriately
+  console.error('Children passed to StripeWrapper must be a valid React element');
+  return null;
+};
 
 export default StripeWrapper(PaymentForm);
