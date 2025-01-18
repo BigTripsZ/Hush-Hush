@@ -8,7 +8,7 @@
     "export": "next build"
   },
   "dependencies": {
-    "next": "latest",
+    "next": "15.1.5",
     "react": "latest",
     "react-dom": "latest"
   }
