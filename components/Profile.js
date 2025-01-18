@@ -3,8 +3,9 @@ import styles from '../styles/components.module.css';
 
 const Profile = () => (
   <div className={styles.profile}>
-    <img src="/images/profile.jpg" alt="Hush-Hush" className={styles.profileImage} />
-    <h1 className={styles.profileName}>Hush-Hush</h1>
+    <img src="/images/profile.jpg" alt="YourDreamSlut" className={styles.profileImage} />
+    <h2>YourDreamSlut ✓⃝</h2>
+    <p>Age: 28, Location: Garden</p>
   </div>
 );
 

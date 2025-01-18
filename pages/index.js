@@ -1,38 +1,31 @@
 import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import Profile from '../components/Profile';
-import MediaGallery from '../components/MediaGallery';
-import SubscribeButton from '../components/SubscribeButton';
+import MediaItem from '../components/MediaItem';
+import OffersButton from '../components/OffersButton';
+import OffersModal from '../components/OffersModal';
 import LoadingAnimation from '../components/LoadingAnimation';
 import TopRightIcon from '../components/TopRightIcon';
 import styles from '../styles/components.module.css';
 
 export default function Home() {
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [showSubscribePopup, setShowSubscribePopup] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showOffers, setShowOffers] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const media28 = document.getElementById('media-28');
-      if (media28 && window.scrollY > media28.offsetTop - window.innerHeight && !isSubscribed) {
-        setShowSubscribePopup(true);
-        window.scrollTo(0, media28.offsetTop - window.innerHeight);
-      } else if (window.scrollY < media28.offsetTop - window.innerHeight) {
-        setShowSubscribePopup(false);
+      const media9 = document.getElementById('media-9');
+      if (media9 && window.scrollY > media9.offsetTop - window.innerHeight / 2) {
+        setShowOffers(true);
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isSubscribed]);
+  }, []);
 
-  const handleSubscribe = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      setIsSubscribed(true);
-    }, 2000); // Simulate payment processing
+  const handleShowOffers = () => {
+    setShowOffers(!showOffers);
   };
 
   return (
@@ -40,21 +33,35 @@ export default function Home() {
       <Head>
         <title>Hush-Hush</title>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-
-      <main className={styles.main}>
+      <header className={styles.header}>
+        <h1>Welcome to Hush-Hush</h1>
         <TopRightIcon />
+      </header>
+      
+      <main className={styles.main}>
         <Profile />
-        <MediaGallery isSubscribed={isSubscribed} />
-        {!isSubscribed && (
-          <SubscribeButton 
-            onClick={handleSubscribe}
-            showPopup={showSubscribePopup}
-            price={9.99}
-          />
-        )}
+        <div className={styles.mediaList}>
+          {[...Array(11)].map((_, i) => (
+            <MediaItem 
+              key={i} 
+              media={`/images/media${i + 1}.jpg`} 
+              caption={`Sexy Caption ${i + 1}`} 
+              isSubscribed={true}
+              id={i === 8 ? 'media-9' : undefined}
+            />
+          ))}
+        </div>
+        <OffersButton onClick={handleShowOffers} showPopup={showOffers} />
         {isLoading && <LoadingAnimation />}
       </main>
+      
+      <footer className={styles.footer}>
+        <p>© 2023 Hush-Hush. All Rights Reserved.</p>
+      </footer>
+      
+      {showOffers && <OffersModal onClose={handleShowOffers} />}
     </div>
   );
 }

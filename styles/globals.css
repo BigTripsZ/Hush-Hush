@@ -1,25 +1,40 @@
-body {
+/* Reset some basic elements */
+body, h1, h2, p, ul, li, figure, figcaption, blockquote, dl, dd, dt {
   margin: 0;
   padding: 0;
-  background: linear-gradient(45deg, #ff69b4, #ffd700);
-  font-family: 'Arial', sans-serif;
-  color: #fff;
-  overflow-x: hidden;
 }
 
-@keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Set up a default font and color scheme */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f4f4f4;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Basic responsive image setup */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove default list styling */
+ul {
+  list-style-type: none;
+}
+
+/* Basic link styling */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure the page takes up the full viewport height */
+html, body, #__next {
+  height: 100%;
 }
