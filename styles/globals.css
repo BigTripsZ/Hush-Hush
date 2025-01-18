@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #ff69b4, #ffd700);
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+@keyframes heartBeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
