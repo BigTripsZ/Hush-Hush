@@ -1,0 +1,203 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  background: url('/banner.jpg') no-repeat center center/cover;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.bannerImage {
+  z-index: -1;
+}
+
+.profilePicture {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circularImage {
+  border-radius: 50%;
+  border: 4px solid white;
+}
+
+.userInfo {
+  margin-top: 20px;
+}
+
+.userName {
+  font-size: 2em;
+  color: #000;
+  margin: 0;
+}
+
+.userHandle {
+  font-size: 1.2em;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.location {
+  font-size: 1em;
+  color: #e74c3c;
+  margin: 5px 0;
+}
+
+.bio {
+  font-size: 1em;
+  color: #333;
+  padding: 10px;
+  line-height: 1.5;
+}
+
+.subscription {
+  padding: 20px;
+  text-align: center;
+}
+
+.stats {
+  margin-bottom: 20px;
+}
+
+.stats p {
+  display: inline;
+  margin: 0 10px;
+  font-size: 1.1em;
+}
+
+.stats span {
+  font-weight: bold;
+}
+
+.subscriptionButtons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subscribeButton {
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subscribeButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+}
+
+.free {
+  background-color: #2ecc71;
+}
+
+.paid {
+  background-color: #ff69b4;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.protectedPost {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+.blurredImage {
+  filter: blur(10px);
+  border-radius: 10px;
+}
+
+.lockIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3em;
+  color: #ff69b4;
+  z-index: 10;
+}
+
+.footer {
+  background-color: #f4f4f4;
+  padding: 10px 0;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.navIcons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #ff69b4;
+  transition: transform 0.3s ease;
+}
+
+.navButton:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .header {
+    padding: 10px;
+  }
+
+  .banner {
+    height: 150px;
+  }
+
+  .userName {
+    font-size: 1.5em;
+  }
+
+  .userHandle {
+    font-size: 1em;
+  }
+
+  .subscribeButton {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+
+  .subscription {
+    padding: 10px;
+  }
+
+  .stats p {
+    font-size: 1em;
+  }
+}
